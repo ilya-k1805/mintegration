@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" src_type="url" />
+        <css src="MIntegration_TestTask::css/slick.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="MIntegration\TestTask\Block\Index" name="testtask_index" template="MIntegration_TestTask::collectionslider.phtml">
+                <arguments>
+                    <argument name="category_id" xsi:type="string">5</argument>
+                    <argument name="products_number" xsi:type="string">10</argument>
+                    <argument name="link_path" xsi:type="string">test-products.html</argument>
+                </arguments>
+            </block>
+            <block class="MIntegration\TestTask\Block\Index" name="testtask_index_refurbished" template="MIntegration_TestTask::collectionslider.phtml">
+                <arguments>
+                    <argument name="category_id" xsi:type="string">5</argument>
+                    <argument name="products_number" xsi:type="string">10</argument>
+                    <argument name="link_path" xsi:type="string">refurbished-products.html</argument>
+                    <argument name="attribute_name" xsi:type="string">refurbished</argument>
+                    <argument name="attribute_value" xsi:type="string">1</argument>
+                </arguments>
+            </block>
+            <block class="MIntegration\TestTask\Block\Index" name="testtask_index_new_arrival" template="MIntegration_TestTask::collectionslider.phtml">
+                <arguments>
+                    <argument name="category_id" xsi:type="string">5</argument>
+                    <argument name="products_number" xsi:type="string">10</argument>
+                    <argument name="link_path" xsi:type="string">new-arrival-products.html</argument>
+                    <argument name="attribute_name" xsi:type="string">new_arrival</argument>
+                    <argument name="attribute_value" xsi:type="string">1</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

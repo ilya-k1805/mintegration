@@ -1,0 +1,43 @@
+<?php
+
+$productCollection = $block->getProductSliderCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$count = $productCollection->count();
+
+?>
+<?php if($count): ?>
+    <ol class="products list items product-items product-slider">
+        <?php foreach ($productCollection as $product): ?>
+            <li>
+                <div class="product-item-info" data-container="product-grid">
+                    <?php
+                    $productImage = $block->getImage($product, 'category_page_grid');
+                    ?>
+                    <a href="<?= $product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                        <?= $productImage->toHtml() ?>
+                    </a>
+                    <div class="product details product-item-details">
+                        <strong class="product name product-item-name">
+                            <a class="product-item-link"
+                               href="<?= $product->getProductUrl() ?>">
+                                <?= /* @escapeNotVerified */ $_helper->productAttribute($product, $product->getName(), 'name') ?>
+                            </a>
+                        </strong>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ol>
+    <a href="<?php echo $block->getPath() ?>">View all</a>
+    
+    <script>
+        require(['jquery','slick'], function($){
+            $('.product-slider').slick({
+                dots: true,
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 5
+            });
+        });
+    </script>
+<?php endif; ?>
